@@ -511,7 +511,7 @@ class _LinearTree(BaseEstimator):
         if not 10 <= self.max_bins <= 120:
             raise ValueError("max_bins must be an integer in [10, 120].")
 
-        if not hasattr(self.base_estimator, 'fit_intercept'):
+        if not hasattr(self.base_estimator, 'fit_intercept') and not hasattr(self.base_estimator, 'coef0'):
             raise ValueError(
                 "Only linear models are accepted as base_estimator. "
                 "Select one from linear_model class of scikit-learn.")
